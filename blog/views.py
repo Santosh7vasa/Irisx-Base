@@ -7,7 +7,13 @@ from django.views.generic import (
     DeleteView)
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post, Language
+from rest_framework import viewsets
+from .serializers import LanguageSerializer
+
+class LanguageView(viewsets.ModelViewSet):
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
 
 def home(request):
     context = {
@@ -75,4 +81,3 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html')
-
