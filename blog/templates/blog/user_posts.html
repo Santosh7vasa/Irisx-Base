@@ -1,6 +1,5 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for post in posts|slice:":1" %}
     <article class="media content-section">
     <div class="media">
       <img class="rounded-circle account-img" src="{{ post.author.profile.image.url }}">
@@ -13,7 +12,6 @@
       </div>
     </div>
   </article>
-  {% endfor %}
     <h6 class="mb-3 text-muted"> Posts By {{view.kwargs.username}} ({{page_obj.paginator.count}})</h6>
     {% for post in posts %}
         <article class="media content-section">
