@@ -1,4 +1,4 @@
-from djongo import models
+from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -26,14 +26,3 @@ class Language(models.Model):
 
     def __str__(self):
         return self.name
-
-class Reading(models.Model):
-    reading1 = models.IntegerField()
-
-class Device(models.Model):
-    title = models.CharField(max_length=100)
-    status = models.BooleanField()
-    power_reading = models.ArrayField(model_container=int)
-
-    def __str__(self):
-        return self.title
