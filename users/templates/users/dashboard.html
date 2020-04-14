@@ -1,0 +1,22 @@
+{% extends 'blog/base.html'%}
+
+{% block content %}
+{% for device in devices %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ device.device_room }}</a>
+          {% if device.status == True %}
+          <small class="text-muted">Status : Turned ON</small>
+          {% else %}
+          <small class="text-muted">Status : Turned OFF</small>
+          {% endif %}
+        </div>
+        <h2><a class="article-title" href="#">{{ device.title }}</a></h2>
+        <p class="article-content">{{ device.title }}</p>
+      </div>
+    </article>
+{% endfor %}
+
+
+{% endblock content %}

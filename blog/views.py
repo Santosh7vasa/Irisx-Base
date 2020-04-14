@@ -15,6 +15,7 @@ class LanguageView(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
 
+
 def home(request):
     context = {
         'posts' : Post.objects.all()

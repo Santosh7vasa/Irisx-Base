@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .models import Device, Room
 
 def register(request):
     if request.method == "POST":
@@ -44,3 +45,14 @@ def profile(request):
         'p_form': p_form
     }
     return render(request, 'users/profile.html', context)
+
+
+def dashboard(request):
+    if request.user.is_authenticated:
+        devices = {
+            "devices": Device.objects.filter(owner=request.user)
+        }
+
+        return render(request, 'users/dashboard.html', devices)
+    else :
+        return redirect('blog-home')
