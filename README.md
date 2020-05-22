@@ -1,4 +1,6 @@
 # Django-basic-webapp
+Note: Code does not have any functionality yet. 
+
 Basic web applicatio made using Django
 
 If you want try out this app:
